@@ -204,7 +204,7 @@ app.patch("/addPrevOrders", async (req, res) => {
             order: req.body.order,
             time: req.body.time,
             location: req.body.location,
-            totalPrice: req.body.totalPrice
+            totalPrice: req.body.totalPrice,
           },
         },
       }
@@ -223,7 +223,7 @@ app.patch("/sales", async (req, res) => {
     for (let i = 0; i < req.body.length; i++) {
       await menu.updateOne(
         { name_c: req.body[i]["chineseName"] },
-        { $inc: { sales: req.body[i]["quantity"] /2 } }
+        { $inc: { sales: req.body[i]["quantity"] } }
       );
     }
 
